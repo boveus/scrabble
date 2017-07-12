@@ -16,20 +16,29 @@ class Scrabble
     }
   end
 
-  def convert_letter_to_point_value(letter)
-    point_values[letter]
-  end
-
-  # def get_word_score(word, word_array = [])
-  #   word_array = word.chars
-  #   word_array.each_with_index p do |letter, index|
-  #     word_array[index] = convert_letter_to_point_value(letter.upcase)
-  #   end
-  #   word_array.join('+')
+  # def convert_letter_to_point_value(letter)
+  #   point_values[letter]
   # end
 
-  def score_with_multipliers(word, score_array, multiplier = 1)
-    score = get_word_score(word)
+  def get_multiplied_word_score(word, multiplier_array)
+    word_array = word.chars
+    word_array.each_with_index do |letter, index|
+      word_array[index] = point_values[letter.upcase] * multiplier_array[index]
+    end
+    word_array
+
+  end
+
+  def get_word_score(word, word_array = [])
+    word_array = word.chars
+    word_array.each_with_index do |letter, index|
+      word_array[index] = convert_letter_to_point_value(letter.upcase)
+    end
+    word_array.join('+')
+  end
+
+  def score_with_multipliers(word, multiplier_array, multiplier = 1, score = 0)
+    get_multiplied_word_score(word, multiplier_array)
     score * multiplier
   end
 

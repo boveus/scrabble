@@ -15,6 +15,10 @@ class ScrabbleTest < Minitest::Test
     @game = Scrabble.new
   end
 
+  def test_score_without_a_multiplier
+
+  end
+
   def test_score_with_multipliers_no_multipliers
     assert_equal 9, @game.score_with_multipliers('hello', [1,2,1,1,1])
   end
