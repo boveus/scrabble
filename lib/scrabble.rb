@@ -15,4 +15,22 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
+  def convert_letter_to_point_value(letter)
+    point_values[letter]
+  end
+
+  # def get_word_score(word, word_array = [])
+  #   word_array = word.chars
+  #   word_array.each_with_index p do |letter, index|
+  #     word_array[index] = convert_letter_to_point_value(letter.upcase)
+  #   end
+  #   word_array.join('+')
+  # end
+
+  def score_with_multipliers(word, score_array, multiplier = 1)
+    score = get_word_score(word)
+    score * multiplier
+  end
+
 end
