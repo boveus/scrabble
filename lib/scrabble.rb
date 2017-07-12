@@ -14,6 +14,7 @@ class Scrabble
       "U"=>1, "V"=>4, "W"=>4, "X"=>8,
       "Y"=>4, "Z"=>10
     }
+
   end
 
   def score(word, score = 0)
@@ -24,10 +25,11 @@ class Scrabble
     score
   end
 
-  def get_multiplied_word_score(word, multiplier_array, score = 0)
+  def get_multiplied_word_score(word, multiplier_array, multiplier, score = 0)
     word_array = word.chars
+    if word_array.length > 6 then score += 10 end
     word_array.each_with_index do |letter, index|
-      score += point_values[letter.upcase] * multiplier_array[index]
+      score += point_values[letter.upcase] * multiplier_array[index] * multiplier
     end
     score
   end
@@ -41,8 +43,8 @@ class Scrabble
   end
 
   def score_with_multipliers(word, multiplier_array, multiplier = 1, score = 0)
-    score = get_multiplied_word_score(word, multiplier_array)
-    score * multiplier
+    score = get_multiplied_word_score(word, multiplier_array, multiplier)
+    score
   end
 
 end
