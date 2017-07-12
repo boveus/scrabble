@@ -19,6 +19,10 @@ class ScrabbleTest < Minitest::Test
     assert_equal 8, @game.score("hello")
   end
 
+  def test_score_without_a_multiplier_with_bonus_with_seven_letters
+    assert_equal 25, @game.score('california')
+  end
+
   def test_score_with_multipliers_no_multipliers
     assert_equal 9, @game.score_with_multipliers('hello', [1,2,1,1,1])
   end

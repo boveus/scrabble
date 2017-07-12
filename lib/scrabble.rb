@@ -10,6 +10,7 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
   def seven_or_more_chars?(word)
     word.length > 6
   end
