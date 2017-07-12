@@ -13,6 +13,7 @@ class Scrabble
 
   def score(word, score = 0)
     word_array = word.chars
+    if word_array.length > 6 then score += 10 end
     word_array.each do |letter|
       score += point_values[letter.upcase]
     end
