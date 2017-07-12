@@ -29,9 +29,9 @@ class Scrabble
     word_array = word.chars
     if word_array.length > 6 then score += 10 end
     word_array.each_with_index do |letter, index|
-      score += point_values[letter.upcase] * multiplier_array[index] * multiplier
+      score += point_values[letter.upcase] * multiplier_array[index] 
     end
-    score
+    score * multiplier
   end
 
   def get_word_score(word, word_array = [])
