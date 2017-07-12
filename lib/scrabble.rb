@@ -30,6 +30,5 @@ class Scrabble
 
   def score_with_multipliers(word, multiplier_array, multiplier = 1, score = 0)
     score = get_multiplied_word_score(word, multiplier_array, multiplier)
-    score
   end
 end
